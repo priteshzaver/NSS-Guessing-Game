@@ -2,6 +2,17 @@
 
 Console.WriteLine("Hello!");
 Console.Write("Please guess a number: ");
+
+
 string userGuess = Console.ReadLine();
 double userNumber = Double.Parse(userGuess);
-Console.WriteLine($"You entered {userNumber}");
+int secretNumber = 42;
+
+if (userNumber == secretNumber)
+{
+    Console.WriteLine("Your guess is correct!");
+}
+else
+{
+    Console.WriteLine("Your guess is wrong!");
+}
