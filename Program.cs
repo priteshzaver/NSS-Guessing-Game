@@ -1,18 +1,21 @@
 ﻿using System;
 
-Console.WriteLine("Hello!");
-Console.Write("Please guess a number: ");
 
-
-string userGuess = Console.ReadLine();
-double userNumber = Double.Parse(userGuess);
-int secretNumber = 42;
-
-if (userNumber == secretNumber)
+for (int i = 1; i <= 4; i++)
 {
-    Console.WriteLine("Your guess is correct!");
-}
-else
-{
-    Console.WriteLine("Your guess is wrong!");
+    Console.WriteLine("Hello!");
+    Console.Write("Please guess a number: ");
+
+    string userGuess = Console.ReadLine();
+    double userNumber = Double.Parse(userGuess);
+    int secretNumber = 42;
+
+    if (userNumber == secretNumber)
+    {
+        Console.WriteLine("Your guess is correct!");
+    }
+    else
+    {
+        Console.WriteLine("Your guess is wrong!");
+    }
 }
