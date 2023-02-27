@@ -15,9 +15,18 @@ int secretNumber = r.Next(1, 100);
 while (userNumber != secretNumber && tryNumber > 1)
 {
     tryNumber--;
-    Console.WriteLine("Your guess is wrong!");
+    if (userNumber > secretNumber)
+    {
+        Console.WriteLine("Your guess is too high!");
+    }
+    else
+    {
+        Console.WriteLine("Your guess is too low!");
+    }
     Console.Write($"Try again ({tryNumber} trie(s) left): ");
     userGuess = Console.ReadLine();
+    userNumber = Double.Parse(userGuess);
+
 }
 if (userNumber == secretNumber)
 {
