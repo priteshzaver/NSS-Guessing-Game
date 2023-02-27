@@ -8,6 +8,7 @@ void Main()
     Console.WriteLine("Easy - this gives the user eight guesses.");
     Console.WriteLine("Medium - this gives the user six guesses.");
     Console.WriteLine("Hard - this gives the user four guesses.");
+    Console.WriteLine("Cheater - this gives the user unlimited guesses.");
     string difficulty = Console.ReadLine().ToLower();
     int tryNumber = 0;
 
@@ -21,6 +22,9 @@ void Main()
             break;
         case "hard":
             tryNumber = 4;
+            break;
+        case "cheater":
+            tryNumber = int.MaxValue;
             break;
     }
 
@@ -41,9 +45,19 @@ void Main()
         {
             Console.WriteLine("Your guess is too low!");
         }
-        Console.Write($"Try again ({tryNumber} trie(s) left): ");
-        userGuess = Console.ReadLine();
-        userNumber = Double.Parse(userGuess);
+
+        if (tryNumber < 8)
+        {
+            Console.Write($"Try again ({tryNumber} trie(s) left): ");
+            userGuess = Console.ReadLine();
+            userNumber = Double.Parse(userGuess);
+        }
+        else
+        {
+            Console.Write("Try again: ");
+            userGuess = Console.ReadLine();
+            userNumber = Double.Parse(userGuess);
+        }
 
     }
     if (userNumber == secretNumber)
@@ -54,8 +68,8 @@ void Main()
     {
         Console.WriteLine("You lose!");
     }
-
 }
+
 
 
 
