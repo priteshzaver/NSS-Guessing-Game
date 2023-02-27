@@ -6,14 +6,17 @@ Console.Write($"Please guess a number: ");
 
 string userGuess = Console.ReadLine();
 double userNumber = Double.Parse(userGuess);
-int secretNumber = 42;
-int tryNumber = 1;
 
-while (userNumber != secretNumber && tryNumber < 4)
+int tryNumber = 4;
+Random r = new Random();
+int secretNumber = r.Next(1, 100);
+
+
+while (userNumber != secretNumber && tryNumber > 1)
 {
-    tryNumber++;
+    tryNumber--;
     Console.WriteLine("Your guess is wrong!");
-    Console.Write($"Try again (TRY #{tryNumber}): ");
+    Console.Write($"Try again ({tryNumber} trie(s) left): ");
     userGuess = Console.ReadLine();
 }
 if (userNumber == secretNumber)
