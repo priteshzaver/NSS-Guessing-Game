@@ -23,18 +23,18 @@ void Main()
         case "hard":
             tryNumber = 4;
             break;
-        case "cheater":
-            tryNumber = int.MaxValue;
-            break;
+        // case "cheater":
+        //     tryNumber = int.MaxValue;
+        //     break;
     }
 
     Console.WriteLine("Please enter your guess:");
     string userGuess = Console.ReadLine();
     double userNumber = Double.Parse(userGuess);
     Random r = new Random();
-    int secretNumber = r.Next(1, 100);
+    int secretNumber = r.Next(1, 101);
 
-    while (userNumber != secretNumber && tryNumber > 1)
+    while ((difficulty == "cheater" && userNumber != secretNumber) || (userNumber != secretNumber && tryNumber > 1))
     {
         tryNumber--;
         if (userNumber > secretNumber)
@@ -46,9 +46,9 @@ void Main()
             Console.WriteLine("Your guess is too low!");
         }
 
-        if (tryNumber < 8)
+        if (difficulty != "cheater" && tryNumber < 8)
         {
-            Console.Write($"Try again ({tryNumber} trie(s) left): ");
+            Console.Write($"Try again - {tryNumber} trie(s) left: ");
             userGuess = Console.ReadLine();
             userNumber = Double.Parse(userGuess);
         }
